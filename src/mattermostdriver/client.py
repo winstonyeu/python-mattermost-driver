@@ -23,10 +23,9 @@ log.setLevel(logging.INFO)
 # pylint: disable=too-many-instance-attributes
 class Client:
 	def __init__(self, options):
-		self._url = '{scheme:s}://{url:s}:{port:d}{basepath:s}'.format(
+		self._url = '{scheme:s}://{url:s}{basepath:s}'.format(
 			scheme=options['scheme'],
 			url=options['url'],
-			port=options['port'],
 			basepath=options['basepath']
 		)
 		self._scheme = options['scheme']
@@ -124,10 +123,9 @@ class Client:
 		if data is None:
 			data = {}
 		if basepath:
-			url = '{scheme:s}://{url:s}:{port:d}{basepath:s}'.format(
+			url = '{scheme:s}://{url:s}{basepath:s}'.format(
 				scheme=self._options['scheme'],
 				url=self._options['url'],
-				port=self._options['port'],
 				basepath=basepath
 			)
 		else:
