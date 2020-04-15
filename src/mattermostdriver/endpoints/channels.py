@@ -28,6 +28,11 @@ class Channels(Base):
 			options=options
 		)
 
+	def get_channels(self):
+		return self.client.get(
+			self.endpoint
+		)
+		
 	def get_list_of_channels_by_ids(self, team_id, options=None):
 		return self.client.post(
 			Teams.endpoint + '/' + team_id + '/channels/ids',
